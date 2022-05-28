@@ -5,5 +5,4 @@ go get github.com/spf13/viper
 
 Mysql 8.0
 
-mysql.yaml
-server.yaml
+config.yaml
