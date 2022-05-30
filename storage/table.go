@@ -27,12 +27,13 @@ type Video struct {
 
 // 评论表
 type Comment struct {
-	ID      int64
-	UserID  int64
-	User    User `gorm:"foreignKey:UserID;references:ID;"`
-	VideoID int64
-	Video   Video `gorm:"foreignKey:VideoID;references:ID"`
-	Content string
+	ID            int64
+	UserID        int64
+	User          User `gorm:"foreignKey:UserID;references:ID;"`
+	VideoID       int64
+	Video         Video `gorm:"foreignKey:VideoID;references:ID"`
+	Content       string
+	FavoriteCount int64
 	gorm.Model
 }
 
