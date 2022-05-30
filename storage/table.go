@@ -8,15 +8,15 @@ type User struct {
 	Name          string
 	FollowCount   int64
 	FollowerCount int64
-	IsFollow      bool
+	IsFollow      bool `json:"is_follow,omitempty"`
 	gorm.Model
 }
 
 // 视频表
 type Video struct {
 	ID            int64
-	AuthorID      int64
-	Author        User `gorm:"foreignKey:AuthorID;references:ID;"`
+	AuthorID      int64 `json:"author_id,omitempty"`
+	Author        User  `gorm:"foreignKey:AuthorID;references:ID;"`
 	PlayUrl       string
 	CoverUrl      string
 	FavoriteCount int64
