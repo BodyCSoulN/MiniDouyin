@@ -1,0 +1,8 @@
+存放配置文件
+
+使用viper读取
+go get github.com/spf13/viper
+
+Mysql 8.0
+
+config.yaml
