@@ -32,6 +32,12 @@ func init() {
 }
 
 func dataMigrate() error {
-	err := Mysql.AutoMigrate(&User{}, &Video{}, &Comment{}, &Attention{})
+	err := Mysql.Set("gorm:table_options", "charset=utf8mb4").
+		AutoMigrate(
+			&User{},
+			&Video{},
+			&Comment{},
+			&Attention{},
+		)
 	return err
 }
