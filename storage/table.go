@@ -33,6 +33,7 @@ type Video struct {
 	FavoriteCount int64
 	CommentCount  int64
 	Title         string
+	IsFavorite    bool   `json:"is_favorite,omitempty"`
 	gorm.Model
 }
 
