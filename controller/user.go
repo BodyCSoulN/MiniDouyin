@@ -1,8 +1,8 @@
 package controller
 
 import (
-	"MiniDouyin/model"
-	"MiniDouyin/storage"
+	"github.com/MiniDouyin/model"
+	"github.com/MiniDouyin/storage"
 	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
