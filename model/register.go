@@ -1,7 +1,7 @@
 package model
 
 import (
-	"MiniDouyin/storage"
+	"github.com/MiniDouyin/storage"
 	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
