@@ -49,7 +49,10 @@ func TokenIsValid(token string) bool {
 		视频时突然token过期，也将会在Feed函数里判断，并不能识别出是那种情况，进而无法知道是否要强制用户重
 		新登陆。我的解决方案是，将token过期时间设置为很长，也就是说刷视频中token突然过期的情况几乎不能出现
 	*/
-	claims := Getting(token)
+	claims, err := Getting(token)
+	if err != nil {
+		return false
+	}
 	if time.Now().After(storage.TokenEndTime[claims.Username].EndTime) {
 		log.Println("token失效")
 		// 用户登录状态改为下线

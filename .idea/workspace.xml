@@ -4,10 +4,23 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bdddb14f-5530-4f47-b658-6b3ddbade824" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/controller/comment.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/comment.go" afterDir="false" />
+    <list default="true" id="09836ca4-33f9-4f76-9e27-9b6c7e392c79" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/MiniDouyin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MiniDouyin.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022_5_30_17_50__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022_5_30_17_50__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/publish.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/publish.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/encrypt.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/encrypt.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/other.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/other.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/user.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/video.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/publish.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/publish.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/publish.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/mysql.go" beforeDir="false" afterPath="$PROJECT_DIR$/storage/mysql.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/table.go" beforeDir="false" afterPath="$PROJECT_DIR$/storage/table.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/userStruct.go" beforeDir="false" afterPath="$PROJECT_DIR$/storage/userStruct.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +35,9 @@
     </option>
   </component>
   <component name="GOROOT" url="file://C:/Program Files/Go" />
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="master" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -37,24 +53,26 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="29eUUZcIUDQ6ZZNtqbDeQwg7owb" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="DefaultGoTemplateProperty" value="Go File" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="go.format.on.save.advertiser.fired" value="true" />
-    <property name="go.formatter.settings.were.checked" value="true" />
-    <property name="go.import.settings.migrated" value="true" />
-    <property name="go.modules.go.list.on.any.changes.was.set" value="true" />
-    <property name="go.sdk.automatically.set" value="true" />
-    <property name="go.watchers.conflict.with.on.save.actions.check.performed" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$" />
-  </component>
-  <component name="RunManager" selected="Go Build.go build github.com/MiniDouyin">
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultGoTemplateProperty": "Go File"
+  }
+}]]></component>
+  <component name="RunManager" selected="Go Build.go build github.com/MiniDouyin (1)">
+    <configuration name="go build github.com/MiniDouyin (1)" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="MiniDouyin" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/MiniDouyin" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build github.com/MiniDouyin" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="douyin" />
       <working_directory value="$PROJECT_DIR$" />
@@ -62,6 +80,18 @@
       <package value="github.com/MiniDouyin" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestGenerateToken in github.com/MiniDouyin/test" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="MiniDouyin" />
+      <working_directory value="$PROJECT_DIR$/test" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/MiniDouyin/test" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestGenerateToken\E$" />
       <method v="2" />
     </configuration>
     <configuration name="build" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
@@ -72,6 +102,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build github.com/MiniDouyin (1)" />
+        <item itemvalue="Go Test.TestGenerateToken in github.com/MiniDouyin/test" />
         <item itemvalue="Go Build.go build github.com/MiniDouyin" />
         <item itemvalue="Makefile Target.build" />
       </list>
@@ -103,8 +135,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VgoProject">
-    <integration-enabled>true</integration-enabled>
   </component>
 </project>

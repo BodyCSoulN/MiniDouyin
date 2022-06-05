@@ -32,20 +32,21 @@ func Setting(name string, id int64) (string, error) {
 	tokenStr, err := token.SignedString(jwtKey)
 	if err != nil {
 		//fmt.Println(err)
-		log.Fatal(err)
+		log.Println(err)
 		return "", err
 	}
 	return tokenStr, err
 }
 
 //Getting 解析token
-func Getting(tokenStr string) *MyClaims {
+func Getting(tokenStr string) (*MyClaims, error) {
 	claims, err := parseToken(tokenStr)
 	if err != nil {
 		//fmt.Println(err)
-		log.Fatal(err)
+		//log.Fatal(err)
+		return nil, err
 	}
-	return claims
+	return claims, nil
 }
 
 func parseToken(tokenStr string) (*MyClaims, error) {
@@ -53,8 +54,8 @@ func parseToken(tokenStr string) (*MyClaims, error) {
 		return jwtKey, nil
 	})
 	if err != nil {
-		fmt.Println("解析失败", err)
-		log.Fatal(err)
+		//fmt.Println("解析失败", err)
+		//log.Fatal(err)
 		return nil, err
 	}
 	if claims, ok := token.Claims.(*MyClaims); ok && token.Valid {
@@ -69,5 +70,5 @@ func Test() {
 	id := int64(1)
 	token, _ := Setting(name, id)
 	fmt.Println("!", token)
-	fmt.Println("#", Getting(token))
+	//fmt.Println("#", any(Getting(token)))
 }
