@@ -23,6 +23,11 @@ type DBUser struct {
 	Online        bool   `gorm:"column:online"`
 }
 
+// TableName DBUser表名
+func (u DBUser) TableName() string {
+	return "douyinuser"
+}
+
 // 视频表
 type Video struct {
 	ID            int64
