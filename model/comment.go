@@ -30,7 +30,7 @@ func GetErrMsg(code int) string {
 func AddComment(data *storage.Comment) int {
 	err := storage.Mysql.Create(&data).Error
 	if err != err {
-		log.Fatal(err)
+		log.Println(err)
 		return ERROR
 	}
 	return SUCCESS
@@ -41,7 +41,7 @@ func GetComment(id int64) (storage.Comment, int) {
 	var comment storage.Comment
 	err := storage.Mysql.Where("id = ?", id).First(&comment).Error
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
 		return comment, ERROR
 	}
 	return comment, SUCCESS
@@ -59,7 +59,7 @@ func DeleteComment(id int64) int {
 	var comment storage.Comment
 	err := storage.Mysql.Where("id = ?", id).Delete(&comment).Error
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
 		return ERROR
 	}
 	return SUCCESS
@@ -74,7 +74,7 @@ func GetCommentList(pageSize int, pageNum int) ([]storage.Comment, int64, int) {
 		Order("Create_At DESC").
 		Select("comment.id, user_id, video_id, content, favorite_count, comment.created_at, comment.update_at, comment.deleted_at")
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
 		return commentList, 0, ERROR
 	}
 	return commentList, total, SUCCESS
