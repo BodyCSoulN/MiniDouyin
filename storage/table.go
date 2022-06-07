@@ -20,6 +20,10 @@ type DBUser struct {
 	IsFollow      bool   `gorm:"column:isfollow"`
 	Online        bool   `gorm:"column:online"`
 }
+// TableName DBUser表名
+func (u DBUser) TableName() string {
+	return "douyinuser"
+}
 
 // 视频表
 //type Video struct {
@@ -32,6 +36,22 @@ type DBUser struct {
 //	CommentCount  int64
 //	Title         string
 //	IsFavorite    bool `json:"is_favorite,omitempty"`
+//	gorm.Model
+//}
+
+
+
+// 视频表
+//type Video struct {
+//	ID            int64
+//	AuthorID      int64 `json:"author_id,omitempty"`
+//	Author        User  `gorm:"foreignKey:AuthorID;references:ID;"`
+//	PlayUrl       string
+//	CoverUrl      string
+//	FavoriteCount int64
+//	CommentCount  int64
+//	Title         string
+//	IsFavorite    bool   `json:"is_favorite,omitempty"`
 //	gorm.Model
 //}
 

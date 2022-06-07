@@ -74,7 +74,8 @@ type FeedResponse struct {
 	NextTime  int64   `json:"next_time,omitempty"`
 }
 
-//// User 用户信息
+
+//	User 用户信息
 type User struct {
 	ID            int64  `json:"id,omitempty"`
 	Name          string `json:"name,omitempty"`
