@@ -50,7 +50,7 @@ func GetComment(id int64) (storage.Comment, int) {
 func GetCommentFavoriteCount(id int64) int64 {
 	var comment storage.Comment
 	var total int64
-	storage.Mysql.Find(&comment).Where("favorite_count = ?", id).Where("status = ?", 1).Count(&total)
+	storage.Mysql.Find(&comment).Where("favorite_count = ?", id).Count(&total)
 	return total
 }
 
@@ -84,12 +84,12 @@ func GetCommentList(pageSize int, pageNum int) ([]storage.Comment, int64, int) {
 func GetCommentListFront(id int, pageSize int, pageNum int) ([]storage.Comment, int64, int) {
 	var commentList []storage.Comment
 	var total int64
-	storage.Mysql.Find(&storage.Comment{}).Where("id = ?", id).Where("status = ?", 1).Count(&total)
+	storage.Mysql.Find(&storage.Comment{}).Where("id = ?", id).Count(&total)
 	err := storage.Mysql.Model(&storage.Comment{}).Limit(pageSize).Offset((pageNum-1)*pageSize).Order("Created_At DESC").
 		Select("comment.id, video_id, user_id, user.name, comment.content, comment.favorite_count, comment.created_at,comment.deleted_at").
 		Joins("LEFT JOIN video ON comment.video_id = video.id").
 		Joins("LEFT JOIN user ON comment.user_id = user.id").
-		Where("video_id = ?", id).Where("status = ?", 1).Scan(&commentList).Error
+		Where("video_id = ?", id).Scan(&commentList).Error
 	if err != nil {
 		return commentList, 0, ERROR
 	}
