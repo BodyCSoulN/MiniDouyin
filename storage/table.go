@@ -20,9 +20,10 @@ type DBUser struct {
 	IsFollow      bool   `gorm:"column:isfollow"`
 	Online        bool   `gorm:"column:online"`
 }
+
 // TableName DBUser表名
 func (u DBUser) TableName() string {
-	return "douyinuser"
+	return "user"
 }
 
 // 视频表
@@ -38,8 +39,6 @@ func (u DBUser) TableName() string {
 //	IsFavorite    bool `json:"is_favorite,omitempty"`
 //	gorm.Model
 //}
-
-
 
 // 视频表
 //type Video struct {
@@ -71,7 +70,7 @@ func (u DBUser) TableName() string {
 type Attention struct {
 	ID        int64
 	WatchID   int64
-	Watch     User `gorm:"foreignKey:WatchID;references:ID;"`
+	Watch     DBUser `gorm:"foreignKey:WatchID;references:ID;"`
 	BeWatchID int64
-	BeWatch   User `gorm:"foreignKey:BeWatchID;references:ID;"`
+	BeWatch   DBUser `gorm:"foreignKey:BeWatchID;references:ID;"`
 }

@@ -2,7 +2,7 @@ Mysql:
   Host: 127.0.0.1
   Port: 3306
   Username: root
-  Password: 123456
+  Password: root
   Database: douyin
 Server:
   Host: 0.0.0.0

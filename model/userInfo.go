@@ -1,14 +1,15 @@
 package model
 
 import (
-	"github.com/MiniDouyin/storage"
 	"log"
+
+	"github.com/MiniDouyin/storage"
 )
 
 // SetOnline 根据id设置用户的在线状态，set online = status
 func SetOnline(id int64, status bool) error {
 	dbUser := storage.DBUser{}
-	err := storage.Mysql.Where("id=?", id).Take(&dbUser).Error
+	err := storage.Mysql.Where("id = ?", id).Take(&dbUser).Error
 	if err != nil {
 		log.Println("SetOnline: ", err)
 		return err

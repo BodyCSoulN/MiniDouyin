@@ -1,12 +1,13 @@
 package controller
 
 import (
-	"github.com/MiniDouyin/model"
-	"github.com/MiniDouyin/storage"
-	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
 	"time"
+
+	"github.com/MiniDouyin/model"
+	"github.com/MiniDouyin/storage"
+	"github.com/gin-gonic/gin"
 )
 
 // Register
@@ -46,7 +47,7 @@ func Register(c *gin.Context) {
 
 	newUser := storage.User{
 		ID:       newUserId,
-		Name:     username,
+		UserName: username,
 		IsFollow: true,
 	}
 	// 生成token，更新token映射信息
@@ -59,7 +60,7 @@ func Register(c *gin.Context) {
 
 	dbUser := storage.DBUser{
 		ID:            newUser.ID,
-		Username:      newUser.Name,
+		Username:      newUser.UserName,
 		Password:      password,
 		FollowCount:   0,
 		FollowerCount: 0,
@@ -84,14 +85,13 @@ func Register(c *gin.Context) {
 func Login(c *gin.Context) {
 	username := c.Query("username")
 	password := c.Query("password")
-
+	log.Printf("------------------%#v", storage.UsersLoginInfo)
 	exist, ok, dbUser := model.CheckLogin(username, password)
-
 	if !exist || !ok { // 用户不存在 or 密码错误
 		var respond string
-		if exist == false {
+		if !exist {
 			respond = "User doesn't exist"
-		} else if ok == false {
+		} else if !ok {
 			respond = "Password error"
 		}
 		c.JSON(http.StatusOK, storage.UserLoginResponse{
@@ -110,6 +110,7 @@ func Login(c *gin.Context) {
 	if err != nil {
 		return
 	}
+	log.Printf("------------------%#v", storage.UsersLoginInfo)
 	c.JSON(http.StatusOK, storage.UserLoginResponse{
 		Response: storage.Response{StatusCode: 0},
 		UserId:   dbUser.ID,
@@ -122,6 +123,7 @@ func Login(c *gin.Context) {
 // 然后设置用户为在线状态，最后将用户信息返回给客户端展示出来
 func UserInfo(c *gin.Context) {
 	token := c.Query("token")
+	log.Printf("------------------%#v", storage.UsersLoginInfo)
 	DYUser, exist := storage.UsersLoginInfo[token]
 	//fmt.Println("UserInfo: id=", DYUser.ID)
 	err := model.SetOnline(DYUser.ID, true)

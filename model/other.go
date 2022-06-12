@@ -1,9 +1,10 @@
 package model
 
 import (
-	"github.com/MiniDouyin/storage"
 	"log"
 	"time"
+
+	"github.com/MiniDouyin/storage"
 )
 
 func GetAllUserInfo() ([]storage.DBUser, error) {
@@ -17,6 +18,15 @@ func GetAllUserInfo() ([]storage.DBUser, error) {
 
 func GetUserInfoByID(id int64) (storage.DBUser, error) {
 	var dbUser storage.DBUser
+	err := storage.Mysql.Where("id=?", id).Take(&dbUser).Error
+	if err != nil {
+		log.Println("GetUserInfoByID: ", err)
+	}
+	return dbUser, nil
+}
+
+func GetUserInfoByIDR(id int64) (storage.User, error) {
+	var dbUser storage.User
 	err := storage.Mysql.Where("id=?", id).Take(&dbUser).Error
 	if err != nil {
 		log.Println("GetUserInfoByID: ", err)

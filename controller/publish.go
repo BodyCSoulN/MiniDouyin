@@ -1,12 +1,13 @@
 package controller
 
 import (
+	"net/http"
+	"strconv"
+
 	"github.com/MiniDouyin/model"
 	"github.com/MiniDouyin/service"
 	"github.com/MiniDouyin/storage"
 	"github.com/gin-gonic/gin"
-	"net/http"
-	"strconv"
 )
 
 // GetPublishList 获取发布列表

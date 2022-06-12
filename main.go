@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/MiniDouyin/config"
 	"github.com/MiniDouyin/router"
 	_ "github.com/MiniDouyin/storage"
@@ -10,6 +11,6 @@ import (
 
 func main() {
 	gin.SetMode(config.Conf.Server.Mode)
-	r := router.Router()
+	r := router.InitRouter()
 	r.Run(fmt.Sprintf("%s:%s", config.Conf.Server.Host, config.Conf.Server.Port))
 }

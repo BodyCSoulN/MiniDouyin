@@ -1,10 +1,11 @@
 package model
 
 import (
-	"github.com/MiniDouyin/storage"
-	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
+
+	"github.com/MiniDouyin/storage"
+	"github.com/gin-gonic/gin"
 )
 
 func IsExist(username string) bool {

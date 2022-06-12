@@ -1,9 +1,10 @@
 package model
 
 import (
-	"github.com/MiniDouyin/storage"
 	"log"
 	"time"
+
+	"github.com/MiniDouyin/storage"
 )
 
 func GetUserInfoByName(username string) (storage.DBUser, error) {
@@ -37,7 +38,7 @@ func InitUserLoginInfo() {
 	for _, user := range userList {
 		DYUser := storage.User{
 			ID:            user.ID,
-			Name:          user.Username,
+			UserName:      user.Username,
 			FollowCount:   user.FollowCount,
 			FollowerCount: user.FollowerCount,
 			IsFollow:      user.IsFollow,
