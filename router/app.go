@@ -8,7 +8,7 @@ import (
 func Router() *gin.Engine {
 	r := gin.Default()
 
-	r.Static("/static", "E:\\codelife\\Goland_Project\\MiniDouyin\\static")
+	r.Static("/static", "../static")
 
 	douyinRouter := r.Group("/douyin")
 
