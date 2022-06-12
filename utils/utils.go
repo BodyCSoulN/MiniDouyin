@@ -4,13 +4,14 @@ import (
 	"bytes"
 	"errors"
 	"fmt"
+	"io"
+	"mime/multipart"
+	"os"
+
 	"github.com/disintegration/imaging"
 	"github.com/golang-jwt/jwt/v4"
 	uuid "github.com/satori/go.uuid"
 	ffmpeg "github.com/u2takey/ffmpeg-go"
-	"io"
-	"mime/multipart"
-	"os"
 )
 
 type UserClaims struct {
@@ -20,6 +21,7 @@ type UserClaims struct {
 
 var myKey = ""
 
+// ParseToken 解析令牌
 func ParseToken(tokenString string) (int64, error) {
 
 	userClaim := new(UserClaims)

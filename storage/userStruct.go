@@ -62,8 +62,9 @@ type Video struct {
 }
 
 type Comment struct {
-	Id         int64  `json:"id,omitempty"`
-	User       User   `json:"user"`
+	Id         int64 `json:"id,omitempty"`
+	UserID     int64
+	User       User   `json:"user" gorm:"foreignKey:UserID;references:ID;"`
 	Content    string `json:"content,omitempty"`
 	CreateDate string `json:"create_date,omitempty"`
 }
@@ -73,7 +74,6 @@ type FeedResponse struct {
 	VideoList []Video `json:"video_list,omitempty"`
 	NextTime  int64   `json:"next_time,omitempty"`
 }
-
 
 //	User 用户信息
 type User struct {
