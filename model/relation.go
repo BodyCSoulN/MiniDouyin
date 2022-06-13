@@ -46,11 +46,11 @@ func Action(user_id, to_user_id int64, action_type string) error {
 }
 
 func FollowList(user_id int64) (follow_list *[]storage.Attention, err error) {
-	err = storage.Mysql.Table("attention").Where("be_watch_id = ?", user_id).Find(&follow_list).Error
+	err = storage.Mysql.Table("attention").Where("watch_id = ?", user_id).Find(&follow_list).Error
 	return
 }
 
 func FollowerList(user_id int64) (follower_list *[]storage.Attention, err error) {
-	err = storage.Mysql.Table("attention").Where("watch_id = ?", user_id).Find(&follower_list).Error
+	err = storage.Mysql.Table("attention").Where("be_watch_id = ?", user_id).Find(&follower_list).Error
 	return
 }

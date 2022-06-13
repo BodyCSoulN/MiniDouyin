@@ -33,7 +33,7 @@ func FollowerList(user_id int64) (follower_list []storage.User, err error) {
 		return
 	}
 	for _, s := range *idList {
-		temp, err := model.GetUserInfoByIDR(s.BeWatchID)
+		temp, err := model.GetUserInfoByIDR(s.WatchID)
 		if err != nil {
 			continue
 		}
