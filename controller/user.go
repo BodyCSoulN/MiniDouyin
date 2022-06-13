@@ -151,6 +151,32 @@ func UserInfo(c *gin.Context) {
 // 将用户原token映射信息从userInfoLogin删除
 // 更改token映射的用户信息, 更新token结束时间
 func UPDToken(username string, id int64) (string, error) {
+	// if _,exist:=storage.TokenEndTime[dbUser.Username]; exist{ // 存在内存
+	// 	// 用户存在 && 密码正确
+	// 	token, err := UPDToken(dbUser.Username, dbUser.ID)
+	// 	if err != nil {
+	// 	   return
+	// 	}
+	// 	c.JSON(http.StatusOK, storage.UserLoginResponse{
+	// 	   Response: storage.Response{StatusCode: 0},
+	// 	   UserId:   dbUser.ID,
+	// 	   Token:    token,
+	// 	})
+	//  }else{  //因某些原因，不新token映射信息
+	// 	token, _ := model.Setting(dbUser.Username, dbUser.ID) // 给新用户生成token序列
+	// 	storage.TokenEndTime[dbUser.Username] = storage.UsrToken{
+	// 	   Token:   token,
+	// 	   EndTime: time.Now().Add(storage.TokenValidTime),
+	// 	}
+	// 	storage.UsersLoginInfo[token] = storage.User{
+	// 	   ID:            dbUser.ID,
+	// 	   Name:          dbUser.Username,
+	// 	   FollowCount:   dbUser.FollowCount,
+	// 	   FollowerCount: dbUser.FollowerCount,
+	// 	   IsFollow:      false,
+	// 	   Model:         gorm.Model{},
+	// 	} // 更新UserLoginInfo
+	//  }
 	newToken, _ := model.Setting(username, id) //为用户重新生成token
 	oldToken := storage.TokenEndTime[username].Token
 	userInfo := storage.UsersLoginInfo[oldToken]
