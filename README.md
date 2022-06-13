@@ -27,12 +27,11 @@ A simplifed implementation of Douyin.
 
 API | 负责
 :--- | :---:
-/douyin/feed/ | 谷
+测试 | 彭，谷
 /douyin/user/register/<br/>/douyin/user/login/<br/>/douyin/user/ | 祝
 /douyin/publish/action/<br/>/douyin/publish/list/ | 刘
-/douyin/favorite/action/<br/>/douyin/favorite/list/ | 彭
 /douyin/comment/action/<br/>/douyin/comment/list/ | 李
-/douyin/relation/action/<br/>/douyin/relation/follow/list/<br/>/douyin/relation/follower/list/ | 张
+/douyin/relation/action/<br/>/douyin/relation/follow/list/<br/>/douyin/relation/follower/list/<br/>/douyin/feed/<br/>/douyin/favorite/action/<br/>/douyin/favorite/list/ | 张
 
 # 相关技术
 
