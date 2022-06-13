@@ -37,7 +37,7 @@ func Feed(user_id int64, latest_time time.Time) (feed_resp *storage.FeedResponse
 		return &storage.FeedResponse{
 			Response: storage.Response{
 				StatusCode: -1,
-				StatusMsg:  "视频已经被你刷完啦",
+				StatusMsg:  "刷新成功",
 			},
 		}, nil
 	}

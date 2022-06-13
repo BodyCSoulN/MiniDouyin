@@ -51,7 +51,7 @@ func GetPublishList(c *gin.Context) {
 
 	tmp := returnFormat(0, "")
 
-	tmp["videoList"] = videoList
+	tmp["video_list"] = videoList
 
 	c.JSON(http.StatusOK, tmp)
 

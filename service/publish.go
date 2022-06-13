@@ -11,9 +11,9 @@ import (
 	"github.com/MiniDouyin/utils"
 )
 
-func GetPublishList(userID int64) ([]storage.Video, error) {
+func GetPublishList(userID int64) ([]storage.VideoResponse, error) {
 	tx := model.GetVideoList(userID)
-	var videoList []storage.Video
+	var videoList []storage.VideoResponse
 	err := tx.Find(&videoList).Error
 	return videoList, err
 }
