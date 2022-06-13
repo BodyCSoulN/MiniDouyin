@@ -34,7 +34,12 @@ func Feed(user_id int64, latest_time time.Time) (feed_resp *storage.FeedResponse
 	var next_time time.Time
 	video_list_len := len(*video_list)
 	if video_list_len == 0 {
-		next_time = time.Now()
+		return &storage.FeedResponse{
+			Response: storage.Response{
+				StatusCode: -1,
+				StatusMsg:  "视频已经被你刷完啦",
+			},
+		}, nil
 	}
 	last_video := (*video_list)[video_list_len-1]
 	next_time = last_video.CreatedAt
