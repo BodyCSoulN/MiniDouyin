@@ -7,6 +7,10 @@ import (
 	"github.com/MiniDouyin/storage"
 )
 
+func init() {
+	InitUserLoginInfo()
+}
+
 func GetUserInfoByName(username string) (storage.DBUser, error) {
 	var dbUser storage.DBUser
 	err := storage.Mysql.Where("username=?", username).Take(&dbUser).Error

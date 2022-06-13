@@ -66,6 +66,15 @@ func (u DBUser) TableName() string {
 //	gorm.Model
 //}
 
+// 喜欢表
+type Favorite struct {
+	ID      int64
+	UserID  int64
+	User    DBUser `gorm:"foreignKey:UserID;references:ID;"`
+	VideoID int64
+	Video   Video `gorm:"foreignKey:VideoID;references:Id;"`
+}
+
 // 关注表
 type Attention struct {
 	ID        int64

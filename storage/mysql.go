@@ -37,6 +37,7 @@ func dataMigrate() error {
 			&DBUser{},
 			&Video{},
 			&Comment{},
+			&Favorite{},
 			&Attention{},
 		)
 	return err

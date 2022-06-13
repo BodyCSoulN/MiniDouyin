@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/MiniDouyin/config"
+	_ "github.com/MiniDouyin/model"
 	"github.com/MiniDouyin/router"
 	_ "github.com/MiniDouyin/storage"
 	"github.com/gin-gonic/gin"

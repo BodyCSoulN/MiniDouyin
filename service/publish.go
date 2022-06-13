@@ -46,8 +46,8 @@ func PublishVideo(file *multipart.FileHeader, title string, userID int64) error 
 		return err
 	}
 	// 服务器地址及端口号
-	coverUrl := "localhost:8080/static/cover/" + uuid + ".jpeg"
-	videoUrl := "localhost:8080/static/video/" + uuid + fileSuffix
+	coverUrl := "1.15.235.227:8080/static/cover/" + uuid + ".jpeg"
+	videoUrl := "1.15.235.227:8080/static/video/" + uuid + fileSuffix
 
-	return model.PublishVideo(coverUrl, videoUrl, title, userID)
+	return model.PublishVideo(videoUrl, coverUrl, title, userID)
 }
