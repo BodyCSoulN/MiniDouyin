@@ -10,5 +10,5 @@ func CommentRouter() {
 	DouyinRouter.GET("/comment/list", controller.GetCommentList)
 	// POST
 	DouyinRouter.POST("/comment/delete/", controller.DeleteComment)
-	DouyinRouter.POST("/comment/add/", controller.AddComment)
+	DouyinRouter.POST("/comment/action/", controller.AddComment)
 }

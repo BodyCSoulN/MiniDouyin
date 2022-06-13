@@ -14,6 +14,8 @@ func InitRouter() *gin.Engine {
 	DouyinRouter = r.Group("/douyin")
 
 	FeedRouter()
+	FavoriteRouter()
+	RelationRouter()
 	UserRouter()
 	CommentRouter()
 	PublishRouter()

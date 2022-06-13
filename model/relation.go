@@ -31,8 +31,8 @@ func Action(user_id, to_user_id int64, action_type string) error {
 	} else if count > 0 && action_type == "2" {
 		// 取关
 		changeFollowCount(user_id, to_user_id, false)
-		return storage.Mysql.Model(&storage.Attention{}).Delete("watch_id = ? and be_watch_id = ?", user_id, to_user_id).Error
-	} else if count == 0 && action_type == "1" {
+		return storage.Mysql.Model(&storage.Attention{}).Where("watch_id = ? and be_watch_id = ?", user_id, to_user_id).Delete(&storage.Attention{}).Error
+	} else if count == 0 && action_type == "2" {
 		// 没关注但是想取关
 		return errors.New("you are no pay attention")
 	}

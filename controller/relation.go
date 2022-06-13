@@ -11,6 +11,13 @@ import (
 
 func Action(c *gin.Context) {
 	token := c.Query("token")
+	if token == "" {
+		c.JSON(http.StatusOK, storage.Response{
+			StatusCode: -1,
+			StatusMsg:  "Error Token",
+		})
+		return
+	}
 	to_user_id_q := c.Query("to_user_id")
 	to_user_id, _ := strconv.ParseInt(to_user_id_q, 10, 64)
 	action_type := c.Query("action_type")

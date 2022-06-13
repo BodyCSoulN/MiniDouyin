@@ -1,19 +1,23 @@
 package controller
 
 import (
+	"net/http"
+	"strconv"
+
 	"github.com/MiniDouyin/model"
 	"github.com/MiniDouyin/storage"
 	"github.com/gin-gonic/gin"
-	"net/http"
-	"strconv"
 )
 
 //	AddComment 新增评论
 func AddComment(c *gin.Context) {
-	var data storage.Comment
+	var data storage.CommentActionRequest
 	_ = c.ShouldBindJSON(&data)
-
-	code := model.AddComment(&data)
+	claim, _ := model.Getting(data.Token)
+	toData := &storage.Comment{
+		Id: claim.Id,
+	}
+	code := model.AddComment(toData)
 	c.JSON(http.StatusOK, gin.H{
 		"status":  code,
 		"data":    data,

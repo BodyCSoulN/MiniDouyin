@@ -79,7 +79,7 @@ type FeedResponse struct {
 //	User 用户信息
 type User struct {
 	ID            int64  `json:"id,omitempty"`
-	UserName      string `json:"name,omitempty"`
+	UserName      string `json:"name,omitempty" gorm:"column:username; unique"`
 	FollowCount   int64  `json:"follow_count"`
 	FollowerCount int64  `json:"follower_count"`
 	IsFollow      bool   `json:"is_follow"`
@@ -91,14 +91,30 @@ type RelationResponse struct {
 	UserList []User `json:"user_list,omitempty"`
 }
 
+// 视频响应
 type VideoResponse struct {
 	Id            int64  `json:"id,omitempty"`
 	AuthorID      int64  `json:"-"`
-	Author        User   `gorm:"foreignKey:AuthorID;references:ID;"`
+	Author        User   `gorm:"foreignKey:AuthorID;references:ID;" json:"author"`
 	PlayUrl       string `json:"play_url,omitempty"`
 	CoverUrl      string `json:"cover_url,omitempty"`
 	FavoriteCount int64  `json:"favorite_count"`
 	CommentCount  int64  `json:"comment_count"`
 	IsFavorite    bool   `json:"is_favorite"`
 	Title         string `json:"title"`
+}
+
+// 评论请求
+type CommentActionRequest struct {
+	Token       string
+	VideoID     int64
+	ActionType  bool
+	CommentText string
+	CommentID   int64
+}
+
+// 点赞列表响应
+type FavoriteResponse struct {
+	Response
+	VideoList []VideoResponse `json:"video_list,omitempty"`
 }
